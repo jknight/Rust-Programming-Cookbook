@@ -17,19 +17,19 @@ mod tests {
     fn loops() {
 
         let mut i = 42;
-        let mut broke = false;
-        
+        let mut _broke = false;
+
         // a basic loop with control statements
         loop {
             i -= 1;
             if i < 2 {
-                broke = true;
+                _broke = true;
                 break;
             } else if i > 2 {
                 continue;
             }
         }
-        assert!(broke);
+        assert!(_broke);
 
         // loops and other constructs can be named for better readability ...
         'outer: loop  {
@@ -51,7 +51,7 @@ mod tests {
         assert_eq!(total_squared, 100);
 
         // for loops can use ranges ...
-        for i in 0..10 { 
+        for i in 0..10 {
             assert!(i >= 0 && i < 10)
         }
 
@@ -68,7 +68,7 @@ mod tests {
         // If let statements can do simple pattern matching
         if let Some(unpacked) = my_option {
             assert_eq!(unpacked, 10);
-        } 
+        }
 
         let mut other_option = Some(2);
         // there is also while let, which does the same thing
@@ -77,7 +77,7 @@ mod tests {
             // if can also return values in assignments
             other_option = if unpacked > 0 {
                 Some(unpacked - 1)
-            } else { 
+            } else {
                 None
             }
         }
